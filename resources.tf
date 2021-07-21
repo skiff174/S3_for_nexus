@@ -37,8 +37,8 @@ resource "aws_s3_bucket_policy" "nexus_bucket_policy" {
 resource "aws_s3_bucket_object" "java_rpm" {
   # upload file to the bucket
   bucket = aws_s3_bucket.nexus_bucket.id
-  source = "jre-8u301-linux-x64.rpm"
-  key    = "jre-8u301-linux-x64.rpm"
+  source = var.java_rpm_file_name
+  key    = var.java_rpm_file_name
 
   depends_on = [
     aws_s3_bucket.nexus_bucket

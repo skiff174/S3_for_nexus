@@ -8,3 +8,8 @@ variable "bucket_name" {
   default = "nexus-bucket-from-tf"
 }
 
+variable "java_rpm_file_name" {
+  type    = string
+  default = "jre-8u301-linux-x64.rpm"
+}
+
