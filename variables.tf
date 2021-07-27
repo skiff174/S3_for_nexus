@@ -3,6 +3,11 @@ variable "region" {
   default = "eu-north-1"
 }
 
+variable "profile" {
+  type    = string
+  default = "default"
+}
+
 variable "bucket_name" {
   type    = string
   default = "nexus-bucket-from-tf"

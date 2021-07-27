@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "nexus_bucket" {
   # create bucket
   bucket = var.bucket_name
-  acl    = "public-read"
+  acl    = "private"
 
   versioning {
     enabled = true
@@ -30,7 +30,8 @@ resource "aws_s3_bucket_policy" "nexus_bucket_policy" {
   policy = data.aws_iam_policy_document.nexus_get_objects_limited_access.json
 
   depends_on = [
-    aws_s3_bucket.nexus_bucket
+    aws_s3_bucket.nexus_bucket,
+    aws_s3_bucket_public_access_block.nexus_bucket_permissions
   ]
 }
 
