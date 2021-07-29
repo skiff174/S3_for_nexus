@@ -1,4 +1,6 @@
 region             = "eu-north-1"
+backup_region      = "eu-west-3"
 profile            = "default"
-bucket_name        = "nexus-bucket-for-java-packages"
-java_rpm_file_name = "jre-8u301-linux-x64.rpm"
+nexus_bucket_name  = "nexus-bucket-for-java-packages"
+backup_bucket_name = "backup-bucket-for-nexus-project"
+java_rpm_file_name = "mc-4.8.7-11.el7.x86_64.rpm"
