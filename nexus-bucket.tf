@@ -7,6 +7,10 @@ resource "aws_s3_bucket" "nexus_bucket" {
     enabled = true
   }
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
   replication_configuration {
     role = aws_iam_role.replication_role.arn
 
@@ -130,14 +134,14 @@ resource "aws_iam_role_policy_attachment" "replication" {
 }
 
 
-resource "aws_s3_bucket_object" "java_rpm" {
-  # upload file to the bucket
-  bucket = aws_s3_bucket.nexus_bucket.id
-  source = var.java_rpm_file_name
-  key    = "packages/${var.java_rpm_file_name}"
+# resource "aws_s3_bucket_object" "java_rpm" {
+#   # upload file to the bucket
+#   bucket = aws_s3_bucket.nexus_bucket.id
+#   source = var.java_rpm_file_name
+#   key    = "packages/${var.java_rpm_file_name}"
 
-  depends_on = [
-    aws_s3_bucket.nexus_bucket,
-    aws_s3_bucket.backup_bucket
-  ]
-}
+#   depends_on = [
+#     aws_s3_bucket.nexus_bucket,
+#     aws_s3_bucket.backup_bucket
+#   ]
+# }

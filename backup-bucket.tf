@@ -7,6 +7,10 @@ resource "aws_s3_bucket" "backup_bucket" {
     enabled = true
   }
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
   tags = {
     Name        = "Nexus backup bucket"
     Environment = "Test"
